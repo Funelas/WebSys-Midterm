@@ -28,14 +28,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 </style>
 
+<?php include("nav.php"); ?>
 <form method= "POST" action= "<?php htmlspecialchars("PHP_SELF");?>">
-<input type="text" name = "name" value = "<?php echo $name; ?>"> <br>
-<span class= "error"> <?php echo $nameErr ;?></span><br>
-<input type="text" name = "address" value = "<?php echo $address ; ?>"> <br>
-<span class= "error"> <?php echo $addressErr ;?></span><br>
-<input type="text" name = "email" value = "<?php echo $email;?>"> <br>
-<span class= "error"> <?php echo $emailErr ;?></span><br>
-<input type="submit" value= "Submit"> <br>
+    <input type="text" name = "name" value = "<?php echo $name; ?>"> <br>
+        <span class= "error"> <?php echo $nameErr ;?></span><br>
+    <input type="text" name = "address" value = "<?php echo $address ; ?>"> <br>
+        <span class= "error"> <?php echo $addressErr ;?></span><br>
+    <input type="text" name = "email" value = "<?php echo $email;?>"> <br>
+        <span class= "error"> <?php echo $emailErr ;?></span><br>
+    <input type="submit" value= "Submit"> <br>
 </form>
 
 <hr>
@@ -70,7 +71,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <td>
                 <a href= 'edit.php?id=$user_id'>Update</a>
                 &nbsp;
-                <a href= ''>Delete</a>
+                <a href= 'confirm_delete.php?id=$user_id'>Delete</a>
                 
                 </tr>";
 
@@ -78,4 +79,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     echo "</table>";
+?>
+
+<hr>
+
+<?php 
+    
+    $Paul = "Paul";
+    $Mica = "Mica";
+    $Kaye = "Kaye";
+    $names = array($Paul, $Mica, $Kaye);
+    foreach($names as $display_names){
+        echo $display_names . "<br>";
+    }
+
 ?>
